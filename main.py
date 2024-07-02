@@ -8,6 +8,7 @@ HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 OUTPUT_DIR = './download'
 
 def main():
+    
     try:
         web = requests.get(URL, headers=HEADERS)
         web.raise_for_status()
