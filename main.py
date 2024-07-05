@@ -16,14 +16,14 @@ def main():
         sys.exit(f"Error: {e}")
 
     soup = BeautifulSoup(web.text, "html.parser")
-    imgs = soup.find_all('img')
+    imgs = soup.find_all('shreddit-post')
     name = 0
 
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
 
     for img in imgs:
-        img_src = img.get("src")
+        img_src = img.get("content-href")
         if img_src and ("preview" not in img_src):
             try:
                 jpg = requests.get(img_src, headers=HEADERS)
